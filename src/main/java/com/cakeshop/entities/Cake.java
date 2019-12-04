@@ -1,4 +1,4 @@
-package cakeshop.entities;
+package main.java.com.cakeshop.entities;
 
 import javax.persistence.Entity;
 
