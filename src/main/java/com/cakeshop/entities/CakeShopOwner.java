@@ -1,7 +1,7 @@
-package main.java.com.cakeshop.entities;
-
-import javax.persistence.Entity;
-
-@Entity
-public class CakeShopOwner {
-}
+//package main.java.com.cakeshop.entities;
+//
+//import javax.persistence.Entity;
+//
+//@Entity
+//public class CakeShopOwner {
+//}

@@ -1,7 +1,5 @@
-package main.java.com.cakeshop;
+package com.cakeshop.accessingdatajpa;
 
-import main.java.com.cakeshop.entities.Customer;
-import main.java.com.cakeshop.repositories.CustomerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
