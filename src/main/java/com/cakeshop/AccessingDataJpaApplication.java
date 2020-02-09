@@ -1,5 +1,9 @@
-package com.cakeshop.accessingdatajpa;
+package com.cakeshop;
 
+import com.cakeshop.accessingdatajpa.CakeRepository;
+import com.cakeshop.accessingdatajpa.CustomerRepository;
+import com.cakeshop.entities.Cake;
+import com.cakeshop.entities.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -44,9 +48,38 @@ public class AccessingDataJpaApplication {
             repository.findByLastName("Bauer").forEach(bauer -> {
                 log.info(bauer.toString());
             });
-            // for (Customer bauer : repository.findByLastName("Bauer")) {
-            //  log.info(bauer.toString());
-            // }
+            log.info("");
+        };
+    }
+
+    @Bean
+    public CommandLineRunner demoCake(CakeRepository repository) {
+        return (args) -> {
+            // save a few cakes
+            repository.save(new Cake("Brownie", 3.50, 2, "342"));
+            repository.save(new Cake("Strawberry-Cheesecake", 4.50, 7, "455"));
+
+            // fetch all cakes
+            log.info("Cakes found with findAll():");
+            log.info("-------------------------------");
+            for (Cake cake : repository.findAll()) {
+                log.info(cake.toString());
+            }
+            log.info("");
+
+            // fetch an individual cake by ID
+            Cake cake = repository.findById(3L);
+            log.info("Cake found with findById(3L):");
+            log.info("--------------------------------");
+            log.info(cake.toString());
+            log.info("");
+
+            // fetch cake by cakeName
+            log.info("Cake found with findByCakeName('Brownie'):");
+            log.info("--------------------------------------------");
+            repository.findByCakeName("Brownie").forEach(Brownie -> {
+                log.info(Brownie.toString());
+            });
             log.info("");
         };
     }

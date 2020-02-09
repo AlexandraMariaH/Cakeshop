@@ -1,5 +1,6 @@
 package com.cakeshop.accessingdatajpa;
 
+import com.cakeshop.entities.Customer;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
