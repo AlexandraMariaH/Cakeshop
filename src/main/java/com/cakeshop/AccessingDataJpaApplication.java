@@ -21,7 +21,7 @@ public class AccessingDataJpaApplication {
     }
 
     @Bean
-    public CommandLineRunner demo(CustomerRepository repository) {
+    public CommandLineRunner demoCustomer(CustomerRepository repository) {
         return (args) -> {
             // save a few customers
             repository.save(new Customer("Max", "Müller"));
