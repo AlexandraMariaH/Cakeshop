@@ -13,25 +13,25 @@ public class Customer {
     private Long id;
     private String firstName;
     private String lastName;
+    private String emailAdress;
 
-    protected Customer() {
+    public Customer() {
     }
 
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.emailAdress = emailAdress;
     }
 
     @Override
     public String toString() {
         return String.format(
-                "Customer[id=%d, firstName='%s', lastName='%s']",
-                id, firstName, lastName);
+                "Customer[id=%d, firstName='%s', lastName='%s', emailAdress='&s']",
+                id, firstName, lastName, emailAdress);
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
     public String getFirstName() {
         return firstName;
@@ -40,5 +40,20 @@ public class Customer {
     public String getLastName() {
         return lastName;
     }
+
+    public String getEmailAdress() { return emailAdress; }
+
+
+    public void setId(Long id) { this.id = id; }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmailAdress(String emailAdress) { this.emailAdress = emailAdress; }
 
 }

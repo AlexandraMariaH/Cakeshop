@@ -1,5 +1,6 @@
-package com.cakeshop.controllers;
+package com.cakeshop.restservice;
 
+import com.cakeshop.restservice.CustomerController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,13 +8,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class WelcomeControllerTest {
+public class CustomerControllerSmokeTest {
 
     @Autowired
-    private WelcomeController welcomeController;
+    private CustomerController customerController;
 
     @Test
     public void contextLoads() throws Exception {
-        assertThat(welcomeController).isNotNull();
+        assertThat(customerController).isNotNull();
     }
 }
