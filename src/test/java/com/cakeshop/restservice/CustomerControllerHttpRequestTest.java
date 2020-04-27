@@ -1,12 +1,13 @@
 package com.cakeshop.restservice;
 
 import com.cakeshop.AccessingDataJpaApplication;
+import com.cakeshop.accessingdatajpa.CustomerRepository;
+import com.cakeshop.entities.Customer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.test.context.ContextConfiguration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -19,8 +20,16 @@ public class CustomerControllerHttpRequestTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    @Autowired
+    CustomerRepository customerRepository;
+
     @Test
     public void customerShouldReturnCustomerInformation() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/api/customer/customer/allCustomers", String.class)).contains("[{\"id\":2,\"firstName\":\"Jens\",\"lastName\":\"Krupp\",\"emailAdress\":\"Jens.Krupp@gmail.com\"}]");
+
+        Customer customer = new Customer("Paolo","Spaht");
+        customer.setEmailAdress("Paolo.Spaht@gmail.com");
+        customerRepository.save(customer);
+
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/api/customer/customer/allCustomers", String.class)).contains("[{\"id\":1,\"firstName\":\"Paolo\",\"lastName\":\"Spaht\",\"emailAdress\":\"Paolo.Spaht@gmail.com\"}]");
     }
 }

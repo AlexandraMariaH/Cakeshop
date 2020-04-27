@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class CakeTest {
 
@@ -19,7 +20,7 @@ public class CakeTest {
         //then
         final Field field = cake.getClass().getDeclaredField("url");
         field.setAccessible(true);
-        assertEquals("Fields didn't match", field.get(cake), "342");
+        assertThat(field.get(cake)).isEqualTo("342");
     }
 
     @Test
@@ -34,7 +35,7 @@ public class CakeTest {
         final String result = cake.getUrl();
 
         //then
-        assertEquals("field wasn't retrieved properly", result, "342");
+        assertThat(result).isEqualTo("342");
     }
 
     @Test
@@ -48,7 +49,7 @@ public class CakeTest {
         //then
         final Field field = cake.getClass().getDeclaredField("id");
         field.setAccessible(true);
-        assertEquals("Fields didn't match", field.get(cake), 1L);
+        assertThat(field.get(cake)).isEqualTo(1L);
     }
 
     @Test
@@ -62,7 +63,7 @@ public class CakeTest {
         //then
         final Field field = cake.getClass().getDeclaredField("cakeName");
         field.setAccessible(true);
-        assertEquals("Fields didn't match", field.get(cake), "Brownie");
+        assertThat(field.get(cake)).isEqualTo("Brownie");
     }
 
     @Test
@@ -77,7 +78,7 @@ public class CakeTest {
         final String result = cake.getCakeName();
 
         //then
-        assertEquals("field wasn't retrieved properly", result, "Brownie");
+        assertThat(result).isEqualTo("Brownie");
     }
 
     @Test
@@ -91,7 +92,7 @@ public class CakeTest {
         //then
         final Field field = cake.getClass().getDeclaredField("price");
         field.setAccessible(true);
-        assertEquals("Fields didn't match", field.get(cake), 2.50);
+        assertThat(field.get(cake)).isEqualTo(2.50);
     }
 
     @Test
@@ -106,7 +107,7 @@ public class CakeTest {
         final double result = cake.getPrice();
 
         //then
-        assertEquals(2.50, 2.50, 0);
+        assertThat(2.50).isEqualTo(0);
     }
 
     @Test
@@ -120,7 +121,7 @@ public class CakeTest {
         //then
         final Field field = cake.getClass().getDeclaredField("qtyInStock");
         field.setAccessible(true);
-        assertEquals("Fields didn't match", field.get(cake), 4);
+        assertThat(field.get(cake)).isEqualTo(4);
     }
 
     @Test
@@ -135,7 +136,7 @@ public class CakeTest {
         final int result = cake.getQtyInStock();
 
         //then
-        assertEquals("field wasn't retrieved properly", result, 4);
+        assertThat(result).isEqualTo(4);
     }
 
 }

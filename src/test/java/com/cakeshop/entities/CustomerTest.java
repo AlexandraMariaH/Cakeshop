@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CustomerTest {
 
@@ -20,7 +20,7 @@ public class CustomerTest {
         final String result = customer.getFirstName();
 
         //then
-        assertEquals("field wasn't retrieved properly", result, "Lena");
+        assertThat(result).isEqualTo("Lena");
     }
 
     @Test
@@ -35,6 +35,6 @@ public class CustomerTest {
         final String result = customer.getLastName();
 
         //then
-        assertEquals("field wasn't retrieved properly", result, "Bauer");
+        assertThat(result).isEqualTo("Bauer");
     }
 }

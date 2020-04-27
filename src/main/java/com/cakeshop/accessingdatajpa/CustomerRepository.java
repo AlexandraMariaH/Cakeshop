@@ -1,5 +1,6 @@
 package com.cakeshop.accessingdatajpa;
 
+import com.cakeshop.entities.CakeBasket;
 import com.cakeshop.entities.Customer;
 import org.springframework.data.repository.CrudRepository;
 
@@ -10,4 +11,5 @@ public interface CustomerRepository extends CrudRepository<Customer, Long> {
     Customer findByFirstName(String firstName);
 
     Customer findByLastName(String lastName);
+    List<Customer> findAll();
 }

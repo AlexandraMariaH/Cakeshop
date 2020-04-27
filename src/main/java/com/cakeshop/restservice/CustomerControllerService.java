@@ -4,13 +4,14 @@ import com.cakeshop.accessingdatajpa.CustomerRepository;
 import com.cakeshop.entities.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
 
 @Service
 public class CustomerControllerService {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+
 
     public Customer createCustomer(Customer customer) {
         return customerRepository.save(customer);
@@ -25,7 +26,7 @@ public class CustomerControllerService {
     }
 
     public void deleteCustomer(String firstName) {
-        Customer customerToDelete =  customerRepository.findByFirstName(firstName);
+        Customer customerToDelete = customerRepository.findByFirstName(firstName);
         customerRepository.delete(customerToDelete);
     }
 

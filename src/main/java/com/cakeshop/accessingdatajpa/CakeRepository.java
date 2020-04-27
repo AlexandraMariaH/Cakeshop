@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface CakeRepository extends CrudRepository<Cake, Long> {
 
-    List<Cake> findByCakeName(String cakeName);
-
-    Cake findById(long id);
+    Cake findByCakeName(String cakeName);
 }

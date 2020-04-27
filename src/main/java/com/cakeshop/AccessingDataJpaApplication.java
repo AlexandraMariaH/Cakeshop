@@ -1,17 +1,14 @@
 package com.cakeshop;
 
-import com.cakeshop.accessingdatajpa.CakeRepository;
-import com.cakeshop.accessingdatajpa.CustomerRepository;
 import com.cakeshop.entities.Cake;
 import com.cakeshop.entities.Customer;
+import com.cakeshop.restservice.CakeControllerService;
 import com.cakeshop.restservice.CustomerControllerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class AccessingDataJpaApplication {
@@ -37,6 +34,26 @@ public class AccessingDataJpaApplication {
         customerControllerService.deleteCustomer("Paula");
 
         customerControllerService.updateCustomerInformation("Jens", "Jens.Krupp@gmail.com");
+
+
+        CakeControllerService cakeControllerService = applicationcontext.getBean("cakeControllerService", CakeControllerService.class);
+        Cake cake = new Cake();
+        cake.setCakeName("Blondie");
+        cake.setQtyInStock(10);
+        cake.setPrice(3.00);
+
+        cakeControllerService.createCake(cake);
+
+        Cake cake2 = new Cake();
+        cake2.setCakeName("Biscuitrolle");
+        cake2.setQtyInStock(3);
+        cake2.setPrice(4.00);
+
+        cakeControllerService.createCake(cake2);
+
+        cakeControllerService.deleteCake("Biscuitrolle");
+
+        cakeControllerService.updateCakeInformation("Blondie", "RawBlondie");
     }
 
 //    @Bean
