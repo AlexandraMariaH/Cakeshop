@@ -2,9 +2,7 @@ package com.cakeshop.entities;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -14,6 +12,10 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String emailAdress;
+
+    @OneToOne
+    @JoinColumn(name = "cakeBasket_id")
+    private CakeBasket cakeBasket;
 
     public Customer() {
     }

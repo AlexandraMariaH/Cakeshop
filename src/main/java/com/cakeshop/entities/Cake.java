@@ -1,12 +1,8 @@
 package com.cakeshop.entities;
 
 import lombok.Data;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -19,6 +15,10 @@ public class Cake {
     private double price;
     private int qtyInStock;
     private String url;
+
+    @ManyToOne
+    @JoinColumn(name="cakeBasket_id")
+    private CakeBasket cakeBasket;
 
     public Cake() {
     }

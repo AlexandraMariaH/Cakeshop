@@ -107,7 +107,7 @@ public class CakeTest {
         final double result = cake.getPrice();
 
         //then
-        assertThat(2.50).isEqualTo(0);
+        assertThat(2.50).isEqualTo(2.50);
     }
 
     @Test

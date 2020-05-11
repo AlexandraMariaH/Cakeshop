@@ -1,7 +1,9 @@
 package com.cakeshop;
 
 import com.cakeshop.entities.Cake;
+import com.cakeshop.entities.CakeBasket;
 import com.cakeshop.entities.Customer;
+import com.cakeshop.restservice.CakeBasketControllerService;
 import com.cakeshop.restservice.CakeControllerService;
 import com.cakeshop.restservice.CustomerControllerService;
 import org.slf4j.Logger;
@@ -9,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+
+import javax.persistence.EntityManager;
 
 @SpringBootApplication
 public class AccessingDataJpaApplication {
@@ -35,6 +39,14 @@ public class AccessingDataJpaApplication {
 
         customerControllerService.updateCustomerInformation("Jens", "Jens.Krupp@gmail.com");
 
+
+        CakeBasketControllerService cakeBasketControllerService = applicationcontext.getBean("cakeBasketControllerService", CakeBasketControllerService.class);
+        CakeBasket cakeBasket = new CakeBasket();
+        cakeBasket.setId(6);
+        Cake cake1 = new Cake();
+        cake1.setCakeName("cake1");
+        cake1.setCakeBasket(cakeBasket);
+        cakeBasketControllerService.createCakeBasket(cakeBasket);
 
         CakeControllerService cakeControllerService = applicationcontext.getBean("cakeControllerService", CakeControllerService.class);
         Cake cake = new Cake();

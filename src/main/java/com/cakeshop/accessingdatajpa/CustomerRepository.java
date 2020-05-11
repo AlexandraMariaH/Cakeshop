@@ -1,6 +1,5 @@
 package com.cakeshop.accessingdatajpa;
 
-import com.cakeshop.entities.CakeBasket;
 import com.cakeshop.entities.Customer;
 import org.springframework.data.repository.CrudRepository;
 
